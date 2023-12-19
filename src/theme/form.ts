@@ -39,4 +39,15 @@ module.exports = StyleSheet.create({
         justifyContent: 'center',
         zIndex: 3
     },
+    selectOption:{
+        width: '100%',
+        paddingHorizontal: 5
+    },
+    buttonTextStyle:{
+        textAlign: 'left',
+        fontSize: 14
+    },
+    checkbox:{
+
+    }
 })
