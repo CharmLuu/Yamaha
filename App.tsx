@@ -17,9 +17,11 @@ export default function App() {
     if(client){
       return (
           <ApolloProvider client={client}>
-            <RootNavigation />
-            <FlashMessage position="top" />
+              <RootNavigation />
+              <FlashMessage position="top" />
+
           </ApolloProvider>
+
       )
     }
     return  <Text>Loading...</Text>;

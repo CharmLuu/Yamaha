@@ -28,7 +28,19 @@ export default function Profile() {
     }
   }
 
-  if (error) return <Text>Error : {error.message}</Text>;
+  if (error){
+    return (
+        <View>
+          <Text>{error.message}</Text>
+          <Pressable
+              onPress={handleLogout}
+              style={styleButton.btnBorder}
+          >
+            <Text>{i18n.t('logout')}</Text>
+          </Pressable>
+        </View>
+    )
+  }
 
   return (
     <View

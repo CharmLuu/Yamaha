@@ -17,7 +17,7 @@ export default function BottomNavBar() {
     const { data } = useQuery(IS_LOGGED_IN);
   return (
       <Tab.Navigator
-          initialRouteName='Menu'
+          initialRouteName='Home'
           screenOptions={{
             headerShown: false,
             tabBarActiveTintColor: themeColor.theme,

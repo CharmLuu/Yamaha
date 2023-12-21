@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react'
-import {Text, View, StyleSheet, TextInput, ScrollView, TouchableOpacity, Platform} from "react-native";
+import {Text, View, StyleSheet, TextInput, ScrollView, TouchableOpacity, Platform, Linking} from "react-native";
 import {isEmailValid, isPasswordValid, isNonEmptyString, isNonEmptyValue} from '../utils';
 import {showMessage} from "react-native-flash-message";
 import {
@@ -11,7 +11,7 @@ import SelectDropdown from 'react-native-select-dropdown'
 import {Spinner} from "../components/Spinner";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import i18n from "../utils/i18n";
-import {styleButton, styleForm, stylePadding} from '../theme';
+import {styleButton, styleForm, styleMessage, stylePadding} from '../theme';
 import {themeColor} from "../theme/color";
 import CheckBox from 'expo-checkbox';
 
@@ -34,6 +34,8 @@ export default function Register() {
   const [isSelected, setSelection] = useState(false);
     const [secureEntry, toggleSecureEntry] = useState(true);
     const [secureEntryCf, toggleSecureEntryCf] = useState(true);
+    const [messError, setMessError] = useState(false);
+    const [textError, setTextError] = useState('');
   const [form, setValues] = useState({
     firstName: '',
     incorrectFirstName: false,
@@ -93,12 +95,8 @@ export default function Register() {
 
   useEffect(() => {
     if (error){
-      showMessage({
-        message: `Submission error! ${error.message}`,
-        type: "danger",
-        duration: 7000
-      });
-      console.log(error)
+        setMessError(true)
+        setTextError(error.message)
     }
   }, [error]);
 
@@ -159,6 +157,33 @@ export default function Register() {
               keyboardShouldPersistTaps='handled'
               automaticallyAdjustKeyboardInsets={true}
           >
+              {messError && (
+              <View style={[styleMessage.container, styleMessage.containerWarning]}>
+                  <MaterialCommunityIcons
+                      name="information"
+                      size={24}
+                      color={themeColor.warning}
+                  />
+                  <Text style={[styleMessage.text, styleMessage.textWarning]}>
+                      {textError} Click
+                      <Text
+                          style={styleMessage.link}
+                          onPress={() => navigation.navigate('Account')}
+                      > Here </Text>
+                      to vertify your details else
+                      <Text
+                          style={styleMessage.link}
+                        onPress={() => {Linking.openURL('https://vn.yamaha.com/vi/support/contacts/index.html')}}
+                      > Contact Us </Text>
+                      or
+                      <Text
+                          style={styleMessage.link}
+                          onPress={() => navigation.navigate('Account')}
+                      > WhatsApp </Text>
+                      for more assistance
+                  </Text>
+              </View>
+              )}
             <Text style={styleForm.labelInput}>{i18n.t("dateOfBirth")} <Text style={styleForm.labelRequire}>*</Text></Text>
             <SelectDropdown
                 data={days}

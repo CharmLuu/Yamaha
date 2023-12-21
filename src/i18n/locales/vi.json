@@ -24,5 +24,6 @@
   "noteForgotPw": "Vui lòng nhập địa chỉ email của bạn bên dưới để nhận liên kết đặt lại mật khẩu.",
   "resetPw":"Đặt lại mật khẩu",
   "A customer with the same email address already exists in an associated website": "Địa chỉ email đã tồn tại trên website",
-  "logout": "Đăng xuất"
+  "logout": "Đăng xuất",
+  "done": "Xong"
 }

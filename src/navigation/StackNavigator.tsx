@@ -5,6 +5,7 @@ import {Image, TouchableOpacity} from "react-native";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Register from "../screens/Register";
 import ForgotPassword from "../screens/ForgotPassword";
+import AccountVertifyRequired from "../screens/AccountVertifyRequired";
 
 const Stack = createNativeStackNavigator();
 
@@ -57,6 +58,10 @@ export default function StackNavigator() {
         <Stack.Screen
             name="ForgotPassword"
             component={ForgotPassword}
+        />
+        <Stack.Screen
+            name="AccountVertifyRequired"
+            component={AccountVertifyRequired}
         />
       </Stack.Navigator>
   )

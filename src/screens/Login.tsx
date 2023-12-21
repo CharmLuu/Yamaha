@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {styleButton, styleForm, stylePadding} from '../theme';
+import {styleButton, styleForm, styleMessage, stylePadding} from '../theme';
 import i18n from "../utils/i18n";
 import {useNavigation} from "@react-navigation/native";
 import {CREATE_CUSTOMER_TOKEN} from "../data/mutations/createCustomerToken";
@@ -104,25 +104,13 @@ export default function Login() {
           keyboardShouldPersistTaps='handled'
       >
         {messError && (
-            <View style={{
-              backgroundColor: '#fae5e5',
-              paddingVertical: 10,
-              paddingHorizontal: 15,
-              flexDirection: 'row',
-              gap: 10,
-              marginBottom: 10,
-              alignItems: 'center'
-
-            }}>
+            <View style={[styleMessage.container, styleMessage.containerError]}>
               <MaterialCommunityIcons
                   name="close-circle"
                   size={24}
                   color={'#e02b27'}
               />
-              <Text style={{
-                color: '#e02b27',
-                flex: 1
-              }}>{textError}</Text>
+              <Text style={[styleMessage.text, styleMessage.textError]}>{textError}</Text>
             </View>
         )}
 
@@ -202,6 +190,12 @@ export default function Login() {
             <Text>{i18n.t("forgotPassword")}</Text>
           </TouchableOpacity>
         </View>
+        <TouchableOpacity
+            style={styles.btnSecond}
+            onPress={() => navigation.navigate('AccountVertifyRequired')}
+        >
+          <Text>AccountVertifyRequired</Text>
+        </TouchableOpacity>
 
       </ScrollView>
   )
