@@ -6,6 +6,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Register from "../screens/Register";
 import ForgotPassword from "../screens/ForgotPassword";
 import AccountVertifyRequired from "../screens/AccountVertifyRequired";
+import Category from "../screens/Category";
+import ProductDetail from "../screens/ProductDetail";
 
 const Stack = createNativeStackNavigator();
 
@@ -62,6 +64,14 @@ export default function StackNavigator() {
         <Stack.Screen
             name="AccountVertifyRequired"
             component={AccountVertifyRequired}
+        />
+        <Stack.Screen
+            name="Category"
+            component={Category}
+        />
+        <Stack.Screen
+            name="ProductDetail"
+            component={ProductDetail}
         />
       </Stack.Navigator>
   )

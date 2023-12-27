@@ -168,7 +168,7 @@ export default function Register() {
                       {textError} Click
                       <Text
                           style={styleMessage.link}
-                          onPress={() => navigation.navigate('Account')}
+                          onPress={() => navigation.navigate('AccountVertifyRequired')}
                       > Here </Text>
                       to vertify your details else
                       <Text

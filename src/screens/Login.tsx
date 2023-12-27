@@ -190,12 +190,12 @@ export default function Login() {
             <Text>{i18n.t("forgotPassword")}</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-            style={styles.btnSecond}
-            onPress={() => navigation.navigate('AccountVertifyRequired')}
-        >
-          <Text>AccountVertifyRequired</Text>
-        </TouchableOpacity>
+        {/*<TouchableOpacity*/}
+        {/*    style={styles.btnSecond}*/}
+        {/*    onPress={() => navigation.navigate('AccountVertifyRequired')}*/}
+        {/*>*/}
+        {/*  <Text>AccountVertifyRequired</Text>*/}
+        {/*</TouchableOpacity>*/}
 
       </ScrollView>
   )

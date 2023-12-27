@@ -28,6 +28,7 @@ export default function CategoryTree({id}) {
             <FlatList
                 data={child}
                 renderItem={renderItem}
+                scrollEnabled={false}
             />
         </View>
     )

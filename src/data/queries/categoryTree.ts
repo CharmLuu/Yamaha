@@ -7,6 +7,7 @@ query GetCategoryList($cateId: [String]){
           id
           level
           name
+          image
         }
     }
 }`;

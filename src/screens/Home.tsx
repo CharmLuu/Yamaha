@@ -16,6 +16,9 @@ import {
     IS_LOGGED_IN,
 } from '../data/queries/isLoggedIn';
 import { useQuery } from '@apollo/client';
+import CategoryTree from "../components/CategoryTree";
+import CategoryTreeGrid from "../components/CategoryTreeGrid";
+import Category from "./Category";
 
 
 export default function Home() {
@@ -26,29 +29,17 @@ export default function Home() {
 
 
   return (
-    <View style={[stylePadding.pxBase, stylePadding.pyBase]}>
-        <View>
-            <Text className="text-red-600">HomeScreen</Text>
+    <ScrollView style={[stylePadding.pxBase]}>
+        {/*<Category/>*/}
+        <CategoryTreeGrid id={3} showImg={true} />
+        <CategoryTree id={3} />
 
-        </View>
-
-    </View>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-    btnDate:{
-        height: 40,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+    container:{
+        flex: 1
     },
-    wrapInput:{
-        flex: 1,
-        borderWidth: 1,
-        borderColor: '#ccc',
-        height: 40,
-        paddingHorizontal: 15,
-        justifyContent: 'center',
-    }
 })
